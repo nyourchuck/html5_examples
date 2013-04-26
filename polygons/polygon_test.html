@@ -1,0 +1,103 @@
+
+<html>
+    <head>
+<style>
+  .root_poly { width: 50px ; height: 50px; z-index: 50; position: relative;}
+  .poly1 { border: solid 1px #000; width: 49px; height: 49px; margin: 0 auto;}
+  .plus1 { top: 60px;}
+  .plus1x { left: 60px;}
+  .plus2x { left: 120px; }
+  .plus2 { top: 120px;}
+  
+  #overlay {
+    display: none;
+    position: relative;
+    background: #484;
+    pointer-events: none;
+    z-index: 1000;
+    width: 500; height: 600;
+    opacity: .5;
+    background: url("./3.png");
+  }
+  
+  #shapeA { margin-left: 300px; }
+  #shapeB { margin-left: 300px; margin-top: 110px; }
+  #shapeC { margin-left: 480px; margin-top: -110px; }
+  
+  .green, .green div { background: green; }
+  .red, .red div { background: red; }
+  .blue div { background: #55f; }
+    
+  div.rot90  {
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); /* IE 9 */
+    -webkit-transform:rotate(90deg); /* Safari and Chrome */
+  }  
+    
+  .dashes {
+    position: absolute;
+    border-top: 3px dashed black;
+    color: black;
+    background-color: black;
+    height: 0px;
+    border-bottom: 0px;
+    margin-top: 14px;
+    width:25%;
+    margin-left: 10%;
+    z-index: -10;
+
+  }  
+    
+  .cl, div .cl { font-size: 0; line-height: 0; text-indent: -4000px; clear: both; height: 0; margin: 0px; padding: 0px; }
+</style>
+    </head>
+    <body>
+
+      <div>
+        <h2>Example of polygon shapes with overlap checking.
+      </div>
+      <br>
+      <hr>
+
+      <div class="menu">
+        <a class="check_for_overlaps">Click Me to Check For Overlaps</a>
+        <div class="overlap_results"></div>
+      </div>
+
+      <div id="overlay">
+        
+      </div>
+
+      <div class="root_poly green" id="shapeA" data_id="A1" >
+        <div class="poly1" style="position: absolute;" id="shapeA1" data_id="A1">A</div>
+        <div class="poly1 plus1" style="position: absolute;" id="shapeA2" data_id="A2">2</div>
+        <div class="poly1 plus1 plus1x" style="position: absolute;" id="shapeA3" data_id="A3">4</div>
+        <div class="poly1 plus2" style="position: absolute;" id="shapeA4" data_id="A4">3</div>
+      </div>
+      
+      <div class="cl"></div>
+
+        <hr class="dashes highlight"/>
+
+      <div class="root_poly red" id="shapeB" data_id="B1">
+        <div class="poly1" style="position: absolute;" id='shapeB1' data_id="B1">B</div>
+        <div class="poly1 plus1" id="apDiv2" style="position: absolute;" data_id="B2">2</div>
+        <div class="poly1 plus1 plus1x" id="apDiv2" style="position: absolute;" data_id="B3">3</div>
+        <div class="poly1 plus1 plus2x" id="shapeB4" style="position: absolute;" data_id="B4">4</div>
+      </div>
+
+
+      <div class="root_poly blue rot90" id="shapeC" data_id="C1">
+        <div class="poly1" style="position: absolute;" id='shapeC1' data_id="C1">C</div>
+        <div class="poly1 plus1" id="shapeC2" style="position: absolute;" data_id="C2">2</div>
+        <div class="poly1 plus2" id="shapeC3" style="position: absolute;" data_id="C3">3</div>
+
+      </div>
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+      <script src="./polygon_test.js"></script>
+    </body>
+</html>
+
+
